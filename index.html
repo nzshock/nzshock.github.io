@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nzshock.dev | Autonomous Systems</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="crt">
+    <div id="scanlines"></div>
+    <div class="container">
+        <!-- Header / Nav -->
+        <header>
+            <nav class="top-nav">
+                <a href="#hero" class="cmd">[./home]</a>
+                <a href="#whoami" class="cmd">[./whoami]</a>
+                <a href="#arch" class="cmd">[./architecture]</a>
+                <a href="#bots" class="cmd">[./bots]</a>
+                <a href="#contact" class="cmd">[./contact]</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section id="hero" class="section visible">
+                <div class="ascii-logo">
+    _   _ ___________ _   _  _____ _____  _   _ 
+   | \ | |___  /  ___| | | ||  _  /  __ \| | / /
+   |  \| |  / /\ `--.| |_| || | | | /  \/| |/ / 
+   | . ` | / /  `--. \  _  || | | | |    |    \ 
+   | |\  |/ /__/\__/ / | | |\ \_/ / \__/\| |\  \
+   \_| \_/\_____/\____/\_| |_/ \___/ \____/\_| \_/
+                </div>
+                <div class="terminal-boot">
+                    <p class="type-line" id="line1" data-text="> initializing nzshock.dev... [OK]"></p>
+                    <p class="type-line" id="line2" data-text="> loading modules... [DONE]"></p>
+                    <p class="type-line" id="line3" data-text="> connection established. welcome."></p>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="whoami" class="section">
+                <h2 class="section-title">> cat ~/whoami.md<span class="cursor">█</span></h2>
+                <div class="about-content">
+                    <div class="profile-pic-container">
+                        <img src="assets/profile.jpg" alt="nzshock Cybernetic Profile" class="profile-pic">
+                        <div class="glitch-overlay"></div>
+                    </div>
+                    <div class="pitch">
+                        <h3>Web3 Developer | Autonomous Systems Architect | Algorithmic Trader</h3>
+                        <p>Building decentralized infrastructure and high-availability autonomous agents. Focused on capital efficiency, MEV, and scalable AI-driven workflows.</p>
+                        
+                        <div class="htop-table">
+                            <div class="htop-header">SYSTEM RESOURCES // TECH STACK</div>
+                            <div class="htop-row"><span class="label">Rust</span><span class="bar rust-bar"></span><span class="pct">92%</span></div>
+                            <div class="htop-row"><span class="label">Solidity</span><span class="bar sol-bar"></span><span class="pct">88%</span></div>
+                            <div class="htop-row"><span class="label">Node.js</span><span class="bar node-bar"></span><span class="pct">95%</span></div>
+                            <div class="htop-row"><span class="label">Python</span><span class="bar py-bar"></span><span class="pct">90%</span></div>
+                            <div class="htop-row"><span class="label">Web3.js</span><span class="bar web3-bar"></span><span class="pct">85%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture -->
+            <section id="arch" class="section">
+                <h2 class="section-title">> less /etc/matrixserver/arch.conf<span class="cursor">█</span></h2>
+                <div class="arch-diagram">
+                    <p>The "brain" of my personal infrastructure, built for absolute resilience and latency optimization.</p>
+                    <div class="diagram-container">
+                        <div class="node core glow">Supervisor Node (Router/Memory)</div>
+                        <div class="connector vertical">|</div>
+                        <div class="workers-grid">
+                            <div class="node worker">Ductor (Main Agent)</div>
+                            <div class="node worker">Researcher Sub-Agent</div>
+                            <div class="node worker">Quality Audit</div>
+                        </div>
+                        <div class="connector-split">
+                            <span>/</span><span>|</span><span>\</span>
+                        </div>
+                        <div class="io-grid">
+                            <div class="node input">Inputs: Webhooks, Telegram, Market Data Streams</div>
+                            <div class="node output">Outputs: Binance/Bitget Exec, Twitch Social</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bots Section -->
+            <section id="bots" class="section">
+                <h2 class="section-title">> ls -la /var/run/bots/<span class="cursor">█</span></h2>
+                <div class="bot-grid">
+                    <div class="bot-card">
+                        <div class="bot-header">
+                            <span class="bot-name">Grid Bot V2 (DeFi / CeFi)</span>
+                            <span class="status online">[ONLINE]</span>
+                        </div>
+                        <p class="bot-desc">High-frequency algorithmic trading agent exploiting micro-inefficiencies.</p>
+                        <div class="terminal-mock">
+                            <code>[SYS] Starting stat_arb module...</code><br>
+                            <code>[EXEC] Filled BUY 0.5 ETH @ 3140.22 (Binance)</code><br>
+                            <code>[EXEC] Filled SELL 0.5 ETH @ 3142.05 (Bitget)</code><br>
+                            <code style="color: var(--accent-cyan);">[PROFIT] +$0.91 | Total ROI: +18.4%</code>
+                        </div>
+                    </div>
+                    <div class="bot-card">
+                        <div class="bot-header">
+                            <span class="bot-name">Twitch Automaton</span>
+                            <span class="status online">[ONLINE]</span>
+                        </div>
+                        <p class="bot-desc">AI-powered community moderation and engagement engine via LLMs.</p>
+                        <div class="terminal-mock">
+                            <code>[TWITCH] Connected to irc.chat.twitch.tv</code><br>
+                            <code>[MOD] User 'spammer99' timed out. Reason: Phishing.</code><br>
+                            <code>[LLM] Generated response for user 'newbDev'</code><br>
+                            <code style="color: var(--accent-magenta);">[MSG] @newbDev Welcome to the stream! Check !github.</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2 class="section-title">> ping nzshock<span class="cursor">█</span></h2>
+                <div class="contact-terminal">
+                    <p>Ready for high-impact protocols and autonomous deployments.</p>
+                    <ul class="contact-links">
+                        <li><a href="https://github.com/nzshock" target="_blank" class="cmd">> cat github.txt</a></li>
+                        <li><a href="https://twitter.com/nzshock" target="_blank" class="cmd">> cat x_twitter.txt</a></li>
+                        <li><a href="mailto:contact@nzshock.dev" class="cmd">> ./send_email.sh</a></li>
+                    </ul>
+                    <div class="input-line">
+                        <span class="prompt">guest@nzshock.dev:~$</span>
+                        <input type="text" class="cmd-input" autofocus placeholder="type a command...">
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer>
+            <p>SYSTEM HALTED. // © 2026 nzshock</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
