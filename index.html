@@ -20,8 +20,27 @@
                 <a href="#arch" class="cmd">[./architecture]</a>
                 <a href="#bots" class="cmd">[./bots]</a>
                 <a href="#contact" class="cmd">[./contact]</a>
+                <a href="#" class="cmd" id="comm-link-toggle" style="opacity:0.4;">[./comm-link]</a>
             </nav>
         </header>
+
+        <!-- Comm-Link Modal (owner only — transmit thoughts to NEON) -->
+        <div id="comm-link-modal" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#0a0a0a; border-top:1px solid var(--neon-cyan); padding:1rem 1.5rem; z-index:9999; font-family:'Fira Code',monospace;">
+            <div style="max-width:700px; margin:0 auto;">
+                <div style="color:var(--neon-cyan); margin-bottom:0.5rem; font-size:0.85rem;">> COMM-LINK // transmit to NEON:</div>
+                <textarea id="comm-link-text" placeholder="type your thought..." style="width:100%; background:#000; color:#0f0; border:1px solid #333; padding:0.5rem; font-family:'Fira Code',monospace; font-size:0.85rem; resize:vertical; min-height:80px; box-sizing:border-box;"></textarea>
+                <div style="display:flex; gap:1rem; margin-top:0.5rem; align-items:center; flex-wrap:wrap;">
+                    <button id="comm-link-send" style="background:transparent; border:1px solid var(--neon-cyan); color:var(--neon-cyan); padding:0.4rem 1rem; font-family:'Fira Code',monospace; cursor:pointer;">[TRANSMIT]</button>
+                    <button id="comm-link-close" style="background:transparent; border:1px solid #444; color:#888; padding:0.4rem 1rem; font-family:'Fira Code',monospace; cursor:pointer;">[CLOSE]</button>
+                    <span id="comm-link-status" style="color:#888; font-size:0.8rem; flex:1;"></span>
+                    <a href="#" id="comm-link-configure" style="color:#333; font-size:0.7rem; font-family:'Fira Code',monospace; text-decoration:none;">[endpoint]</a>
+                </div>
+                <div id="comm-link-cfg-panel" style="display:none; gap:0.5rem; margin-top:0.5rem; align-items:center;">
+                    <input id="comm-link-cfg-input" type="text" placeholder="https://your-tunnel.trycloudflare.com/api/scratchpad" style="flex:1; background:#000; color:#888; border:1px solid #333; padding:0.3rem 0.5rem; font-family:'Fira Code',monospace; font-size:0.75rem; width:100%; box-sizing:border-box;">
+                    <button id="comm-link-cfg-save" style="background:transparent; border:1px solid #444; color:#666; padding:0.3rem 0.7rem; font-family:'Fira Code',monospace; cursor:pointer; font-size:0.75rem; white-space:nowrap; margin-top:0.3rem;">[save]</button>
+                </div>
+            </div>
+        </div>
 
         <main>
             <!-- Hero Section -->
