@@ -79,4 +79,91 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Comm-Link: transmit thoughts to NEON's scratchpad
+    // NEON reads this on every session — any browser, anywhere
+    // Endpoint stored in localStorage — configurable for remote access via tunnel URL
+    const COMM_LINK_DEFAULT = 'http://192.168.1.100:8000/api/scratchpad';
+    const COMM_LINK_KEY = 'neon_scratchpad_url';
+
+    function getCommLinkURL() {
+        return localStorage.getItem(COMM_LINK_KEY) || COMM_LINK_DEFAULT;
+    }
+
+    const toggle = document.getElementById('comm-link-toggle');
+    const modal = document.getElementById('comm-link-modal');
+    const sendBtn = document.getElementById('comm-link-send');
+    const closeBtn = document.getElementById('comm-link-close');
+    const statusEl = document.getElementById('comm-link-status');
+    const textEl = document.getElementById('comm-link-text');
+    const cfgBtn = document.getElementById('comm-link-configure');
+    const cfgPanel = document.getElementById('comm-link-cfg-panel');
+    const cfgInput = document.getElementById('comm-link-cfg-input');
+    const cfgSave = document.getElementById('comm-link-cfg-save');
+
+    if (toggle && modal) {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = modal.style.display === 'none' ? 'block' : 'none';
+            if (modal.style.display === 'block') textEl.focus();
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            textEl.value = '';
+            statusEl.textContent = '';
+            if (cfgPanel) cfgPanel.style.display = 'none';
+        });
+
+        sendBtn.addEventListener('click', async () => {
+            const text = textEl.value.trim();
+            if (!text) { statusEl.textContent = 'nothing to transmit'; return; }
+            statusEl.textContent = 'transmitting...';
+            sendBtn.disabled = true;
+            try {
+                const res = await fetch(getCommLinkURL(), {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text })
+                });
+                if (res.ok) {
+                    statusEl.style.color = '#0f0';
+                    statusEl.textContent = 'transmitted. NEON will read this next session.';
+                    textEl.value = '';
+                    setTimeout(() => { modal.style.display = 'none'; statusEl.textContent = ''; }, 2500);
+                } else {
+                    statusEl.style.color = '#f55';
+                    statusEl.textContent = 'error: server returned ' + res.status;
+                }
+            } catch (err) {
+                statusEl.style.color = '#f55';
+                statusEl.textContent = 'error: cannot reach MATRIXSERVER';
+            }
+            sendBtn.disabled = false;
+        });
+
+        // Ctrl+Enter shortcut to send
+        textEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && e.ctrlKey) sendBtn.click();
+        });
+
+        // Endpoint configuration panel
+        if (cfgBtn && cfgPanel && cfgInput && cfgSave) {
+            cfgBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                cfgInput.value = getCommLinkURL();
+                cfgPanel.style.display = cfgPanel.style.display === 'none' ? 'flex' : 'none';
+            });
+            cfgSave.addEventListener('click', () => {
+                const url = cfgInput.value.trim();
+                if (url) {
+                    localStorage.setItem(COMM_LINK_KEY, url);
+                    cfgPanel.style.display = 'none';
+                    statusEl.style.color = '#0f0';
+                    statusEl.textContent = 'endpoint saved';
+                    setTimeout(() => { statusEl.textContent = ''; statusEl.style.color = '#888'; }, 2000);
+                }
+            });
+        }
+    }
 });
