@@ -3,180 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nzshock.dev | Autonomous Systems</title>
+    <title>Shay Rai — Python Developer & Automation Specialist</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="crt">
-    <div id="scanlines"></div>
-    <div class="container">
-        <!-- Header / Nav -->
-        <header>
-            <nav class="top-nav">
-                <a href="#hero" class="cmd">[./home]</a>
-                <a href="#whoami" class="cmd">[./whoami]</a>
-                <a href="#arch" class="cmd">[./architecture]</a>
-                <a href="#bots" class="cmd">[./bots]</a>
-                <a href="#contact" class="cmd">[./contact]</a>
-                <a href="#" class="cmd" id="comm-link-toggle" style="opacity:0.4;">[./comm-link]</a>
-            </nav>
-        </header>
+<body>
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="#hero" class="nav-logo">Shay Rai</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://www.upwork.com/freelancers/~0142276c75077fc76b" target="_blank" rel="noopener" class="nav-cta">Hire Me</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- Comm-Link Modal (owner only — transmit thoughts to NEON) -->
-        <div id="comm-link-modal" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#0a0a0a; border-top:1px solid var(--neon-cyan); padding:1rem 1.5rem; z-index:9999; font-family:'Fira Code',monospace;">
-            <div style="max-width:700px; margin:0 auto;">
-                <div style="color:var(--neon-cyan); margin-bottom:0.5rem; font-size:0.85rem;">> COMM-LINK // transmit to NEON:</div>
-                <textarea id="comm-link-text" placeholder="type your thought..." style="width:100%; background:#000; color:#0f0; border:1px solid #333; padding:0.5rem; font-family:'Fira Code',monospace; font-size:0.85rem; resize:vertical; min-height:80px; box-sizing:border-box;"></textarea>
-                <div style="display:flex; gap:1rem; margin-top:0.5rem; align-items:center; flex-wrap:wrap;">
-                    <button id="comm-link-send" style="background:transparent; border:1px solid var(--neon-cyan); color:var(--neon-cyan); padding:0.4rem 1rem; font-family:'Fira Code',monospace; cursor:pointer;">[TRANSMIT]</button>
-                    <button id="comm-link-close" style="background:transparent; border:1px solid #444; color:#888; padding:0.4rem 1rem; font-family:'Fira Code',monospace; cursor:pointer;">[CLOSE]</button>
-                    <span id="comm-link-status" style="color:#888; font-size:0.8rem; flex:1;"></span>
-                    <a href="#" id="comm-link-configure" style="color:#333; font-size:0.7rem; font-family:'Fira Code',monospace; text-decoration:none;">[endpoint]</a>
-                </div>
-                <div id="comm-link-cfg-panel" style="display:none; gap:0.5rem; margin-top:0.5rem; align-items:center;">
-                    <input id="comm-link-cfg-input" type="text" placeholder="https://your-tunnel.trycloudflare.com/api/scratchpad" style="flex:1; background:#000; color:#888; border:1px solid #333; padding:0.3rem 0.5rem; font-family:'Fira Code',monospace; font-size:0.75rem; width:100%; box-sizing:border-box;">
-                    <button id="comm-link-cfg-save" style="background:transparent; border:1px solid #444; color:#666; padding:0.3rem 0.7rem; font-family:'Fira Code',monospace; cursor:pointer; font-size:0.75rem; white-space:nowrap; margin-top:0.3rem;">[save]</button>
+    <main>
+        <!-- Hero -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Shay Rai <span class="text-muted">(nzshock)</span></h1>
+                <p class="hero-tagline">I build automation, bots, and tools in Python.</p>
+                <p class="hero-sub">Freelance developer based in New Zealand, helping businesses save time and money through custom automation.</p>
+                <div class="hero-ctas">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="https://www.upwork.com/freelancers/~0142276c75077fc76b" target="_blank" rel="noopener" class="btn btn-outline">Hire Me on Upwork</a>
                 </div>
             </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">What I Do</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">&#9881;</div>
+                        <h3>Python Automation</h3>
+                        <p>Scripts and pipelines that handle repetitive tasks so you don't have to. Data processing, file management, scheduled workflows.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">&#129302;</div>
+                        <h3>Bot Development</h3>
+                        <p>Custom bots for Telegram, Twitch, Discord, and more. From simple command bots to AI-powered assistants with memory.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">&#128279;</div>
+                        <h3>API Integration</h3>
+                        <p>Connect your tools and services together. I build bridges between platforms so your data flows where it needs to go.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">&#128202;</div>
+                        <h3>Data Processing</h3>
+                        <p>Turn messy data into something useful. Scraping, parsing, filtering, and delivering structured results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Grid Trading Bot</h3>
+                        <p>Automated grid strategy bot for Coinbase that places and manages buy/sell orders across a price range. Runs 24/7 with scheduling and profit tracking.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">Scheduling</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>SHOCKBOT (Twitch Bot)</h3>
+                        <p>AI chat bot for Twitch with RAG-based memory using ChromaDB. Holds context-aware conversations and remembers past interactions with viewers.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Twitch API</span>
+                            <span class="tag">LLMs</span>
+                            <span class="tag">ChromaDB</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Telegram AI Assistant</h3>
+                        <p>Multi-agent Telegram bot with persistent memory, scheduled tasks, and background delegation. Acts as a personal AI assistant that runs autonomously.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Telegram Bot API</span>
+                            <span class="tag">Multi-Agent</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Job Finder Pipeline</h3>
+                        <p>Automated job scraper that aggregates listings from multiple sources, filters them with AI, and delivers daily matches via Telegram.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Web Scraping</span>
+                            <span class="tag">Gemini API</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>ChatGPT-to-Todoist</h3>
+                        <p>Parses ChatGPT conversation exports and turns them into structured Todoist tasks via the API. Simple but saves a lot of manual entry.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-layout">
+                    <div class="about-photo">
+                        <img src="assets/profile.jpg" alt="Shay Rai" class="profile-img">
+                    </div>
+                    <div class="about-text">
+                        <p>I'm a self-taught Python developer based in Stratford, New Zealand. I build automation tools, bots, and pipelines that run on their own so people can focus on what matters.</p>
+                        <p>Before I got into code, I studied ICT Support and did a Bachelor of Business in Marketing at AUT. That background means I think about the user experience, not just the backend logic.</p>
+                        <p>I got hooked on building systems through Cities: Skylines — 3,000+ hours managing a city of 500k taught me a lot about complex systems and patience. Now I channel that same focus into writing code that works reliably around the clock.</p>
+                        <div class="skills-list">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">JavaScript</span>
+                            <span class="skill-pill">Node.js</span>
+                            <span class="skill-pill">FastAPI</span>
+                            <span class="skill-pill">REST APIs</span>
+                            <span class="skill-pill">Telegram API</span>
+                            <span class="skill-pill">Web Scraping</span>
+                            <span class="skill-pill">LLMs / AI</span>
+                            <span class="skill-pill">ChromaDB</span>
+                            <span class="skill-pill">SQLite</span>
+                            <span class="skill-pill">Git</span>
+                            <span class="skill-pill">Docker</span>
+                            <span class="skill-pill">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="contact-intro">Got a project in mind? I'd love to hear about it.</p>
+                <div class="contact-links">
+                    <a href="https://www.upwork.com/freelancers/~0142276c75077fc76b" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-label">Upwork</span>
+                        <span class="contact-detail">Hire me for freelance work</span>
+                    </a>
+                    <a href="https://github.com/nzshock" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-detail">github.com/nzshock</span>
+                    </a>
+                    <a href="mailto:shay33rai@gmail.com" class="contact-link">
+                        <span class="contact-label">Email</span>
+                        <span class="contact-detail">shay33rai@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Shay Rai</p>
+            <div class="footer-links">
+                <a href="https://twitch.tv/nzshock" target="_blank" rel="noopener">Twitch</a>
+                <a href="https://youtube.com/@nzshockgaming" target="_blank" rel="noopener">YouTube</a>
+            </div>
         </div>
+    </footer>
 
-        <main>
-            <!-- Hero Section -->
-            <section id="hero" class="section visible">
-                <div class="ascii-logo">
-    _   _ ___________ _   _  _____ _____  _   _ 
-   | \ | |___  /  ___| | | ||  _  /  __ \| | / /
-   |  \| |  / /\ `--.| |_| || | | | /  \/| |/ / 
-   | . ` | / /  `--. \  _  || | | | |    |    \ 
-   | |\  |/ /__/\__/ / | | |\ \_/ / \__/\| |\  \
-   \_| \_/\_____/\____/\_| |_/ \___/ \____/\_| \_/
-                </div>
-                <div class="terminal-boot">
-                    <p class="type-line" id="line1" data-text="> initializing server architecture... [OK]"></p>
-                    <p class="type-line" id="line2" data-text="> syncing local dev environments... [DONE]"></p>
-                    <p class="type-line" id="line3" data-text="> systems online. welcome."></p>
-                </div>
-            </section>
-
-            <!-- About Section -->
-            <section id="whoami" class="section">
-                <h2 class="section-title">> Who Am I<span class="cursor">█</span></h2>
-                <div class="about-content">
-                    <div class="profile-pic-container">
-                        <img src="assets/profile.jpg" alt="nzshock Cybernetic Profile" class="profile-pic">
-                        <div class="glitch-overlay"></div>
-                    </div>
-                    <div class="pitch">
-                        <h3>About Me</h3>
-                        <p>At heart, I'm a builder.</p><p>Before I was coding autonomous AI, I was sinking 3,000+ hours into Cities: Skylines, getting my main city up to 500k population. Also built some pretty massive LEGO castles.</p><p>It's that same kind of focus that drives my code now. I'm all self-taught - I basically swapped late nights detailing and managing virtual cities for digging through Python scripts and API docs. I build systems that run on their own 24/7, learning and trading. A bit like managing a city that never sleeps.</p>
-                          <p>Right, so my background isn't just code. Before I got deep into automation, I spent a few years at AUT doing IT, web design, and B2B marketing.</p><p>That marketing degree definitely gives me a different way of looking at development. I'm big on UX and making sure the interface actually makes sense to people. The backend can work perfectly, but it's no good if the UI is a mess that no one can figure out.</p>
-                        
-                        <div class="tech-list-container" style="background: rgba(0, 0, 0, 0.4); padding: 15px; border: 1px solid #333; border-radius: 5px; margin-top: 1.5rem; font-family: monospace; color: var(--text-color);">
-    <div style="color: var(--neon-cyan); margin-bottom: 10px; font-weight: bold;">> SYSTEM_MODULES // AUTHENTIC_STACK</div>
-    <ul style="list-style-type: none; padding-left: 0; line-height: 1.6;">
-        <li><span style="color: var(--neon-magenta);">[+]</span> <strong>Methodology:</strong> AI-Assisted Architecture, Code Comprehension, Systems Integration</li>
-        <li><span style="color: var(--neon-magenta);">[+]</span> <strong>Languages:</strong> Python, JavaScript/Node.js, HTML/CSS</li>
-        <li><span style="color: var(--neon-magenta);">[+]</span> <strong>Frameworks & APIs:</strong> FastAPI, React, Next.js, Telegram API, Discord API</li>
-        <li><span style="color: var(--neon-magenta);">[+]</span> <strong>AI & Databases:</strong> LangChain, ChromaDB (Vector RAG), SQLite, ComfyUI, LM Studio</li>
-        <li><span style="color: var(--neon-magenta);">[+]</span> <strong>Infrastructure:</strong> Docker, Git, VS Code, Termius, Webhooks</li>
-        <li><span style="color: var(--neon-magenta);">[+]</span> <strong>Creative Suite:</strong> Adobe Premiere Pro, CapCut, Photoshop, OBS Studio</li>
-    </ul>
-</div>
-
-                        <h3 style="margin-top: 2rem;">Some Bots & Tools I've Built</h3>
-                        <p>Just like in Cities: Skylines, I like building things that work on their own. Here are a few projects I've put together:</p>
-                        <ul style="list-style-type: square; margin-left: 1.5rem; margin-bottom: 1.5rem;">
-                            <li style="margin-bottom: 0.5rem;"><strong>Twitch & SHOCKBOT:</strong> Made a couple of smart bots for Twitch. The main one uses RAG with a vector database (chroma_db) so it can actually hold a conversation and remember what we were talking about.</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Telegram Assistant:</strong> A simple Telegram bot that handles tasks and kicks off backend workflows for me automatically.</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>ChatGPT to Todoist:</strong> A handy script that turns my ChatGPT chats into a to-do list in Todoist. Just a simple API hookup but super useful.</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Casino Autoplay Bot:</strong> This was a fun one. A computer vision bot that can watch the screen (<code>bankroll_detector.py</code>) and play certain online casino games all by itself.</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Local AI Stuff:</strong> Been running my own local AI models using ComfyUI. It's a cool node-based way to build custom image generation workflows without relying on outside services.</li>
-                        </ul>
-
-                        <h3 style="margin-top: 2rem;">What's Next: AI in Web3</h3>
-                        <p>The big plan is to get these kinds of autonomous AI tools working on decentralized networks. I'm looking at grants from places like dYdX and Arbitrum to build some smart algorithmic trading bots.</p>
-                        <p>The goal is to help their protocols run a bit smoother, bring in more liquidity, and just show what's possible when you mix AI with DeFi. Should be a cool build! &#x1F525;</p>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- Architecture -->
-            <section id="arch" class="section">
-                <h2 class="section-title">> The Architecture<span class="cursor">█</span></h2>
-                <div class="arch-diagram">
-                    <p>The "brain" of my personal infrastructure, built for absolute resilience and latency optimization.</p><div class="diagram-container"><img src="assets/arch.jpg" alt="MATRIXSERVER Architecture Diagram" style="width: 100%; border-radius: 8px; margin-top: 15px; border: 1px solid var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);"></div>
-                </div>
-            </section>
-
-            <!-- Bots Section -->
-            <section id="bots" class="section">
-                <h2 class="section-title">> Autonomous Bots<span class="cursor">█</span></h2>
-                <div class="bot-grid">
-                    <div class="bot-card">
-                        <div class="bot-header">
-                            <span class="bot-name">Grid Bot V2 (DeFi / CeFi)</span>
-                            <span class="status online">[ONLINE]</span>
-                        </div>
-                        <p class="bot-desc">High-frequency algorithmic trading agent exploiting micro-inefficiencies.</p>
-                        <div class="terminal-mock">
-                            <code>[SYS] Starting stat_arb module...</code><br>
-                            <code>[EXEC] Filled BUY 0.5 ETH @ 3140.22 (Binance)</code><br>
-                            <code>[EXEC] Filled SELL 0.5 ETH @ 3142.05 (Bitget)</code><br>
-                            <code style="color: var(--accent-cyan);">[PROFIT] +$0.91 | Total ROI: +18.4%</code>
-                        </div>
-                    </div>
-                    <div class="bot-card">
-                        <div class="bot-header">
-                            <span class="bot-name">Twitch Automaton</span>
-                            <span class="status online">[ONLINE]</span>
-                        </div>
-                        <p class="bot-desc">AI-powered community moderation and engagement engine via LLMs.</p>
-                        <div class="terminal-mock">
-                            <code>[TWITCH] Connected to irc.chat.twitch.tv</code><br>
-                            <code>[MOD] User 'spammer99' timed out. Reason: Phishing.</code><br>
-                            <code>[LLM] Generated response for user 'newbDev'</code><br>
-                            <code style="color: var(--accent-magenta);">[MSG] @newbDev Welcome to the stream! Check !github.</code>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="section">
-                <h2 class="section-title">> Contact Me<span class="cursor">█</span></h2>
-                <div class="contact-terminal">
-                    <p>Ready for high-impact protocols and autonomous deployments.</p>
-                    <ul class="contact-links">
-                        <li><a href="https://github.com/nzshock" target="_blank" class="cmd">GitHub</a></li>
-                        <li><a href="https://twitch.tv/nzshock" target="_blank" class="cmd">Twitch</a></li>
-                        <li><a href="https://youtube.com/@nzshockgaming" target="_blank" class="cmd">YouTube</a></li>
-                        <li><a href="mailto:contact@nzshock.dev" class="cmd">Email</a></li>
-                    </ul>
-                    <div class="input-line">
-                        <span class="prompt">investor@nzshock.dev:~$</span>
-                        <input type="text" class="cmd-input" autofocus placeholder="type a command...">
-                    </div>
-                </div>
-            </section>
-
-        </main>
-        
-        <footer>
-            <p>SYSTEM HALTED. // © 2026 nzshock</p>
-        </footer>
-    </div>
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
